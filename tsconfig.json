@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "diagnostics": true,
+    "noEmitOnError": true,
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "rootDir": "./src",
+    "outDir": "./dist"
+  },
+  "filesGlob": [
+    "src/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

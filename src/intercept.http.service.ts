@@ -46,6 +46,13 @@ export class InterceptHttp extends Http {
 
     intercept(observable: Observable<Response>): Observable<Response> {
         this._ps.beforeRequest.emit("beforeRequestEvent");
-        return observable.do(() => this._ps.afterRequest.emit("afterRequestEvent"));
+        observable.subscribe(null, (err) => {
+            console.error(err);
+            this._ps.afterRequest.emit("afterRequestEvent");
+        }, () => {
+            console.log('complete');
+            this._ps.afterRequest.emit("afterRequestEvent");
+        });
+        return observable;
     }
 }

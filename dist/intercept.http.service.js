@@ -49,7 +49,14 @@ var InterceptHttp = (function (_super) {
     InterceptHttp.prototype.intercept = function (observable) {
         var _this = this;
         this._ps.beforeRequest.emit("beforeRequestEvent");
-        return observable.do(function () { return _this._ps.afterRequest.emit("afterRequestEvent"); });
+        observable.subscribe(null, function (err) {
+            console.error(err);
+            _this._ps.afterRequest.emit("afterRequestEvent");
+        }, function () {
+            console.log('complete');
+            _this._ps.afterRequest.emit("afterRequestEvent");
+        });
+        return observable;
     };
     InterceptHttp = __decorate([
         core_1.Injectable(),

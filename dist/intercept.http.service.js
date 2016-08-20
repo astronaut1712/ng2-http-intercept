@@ -37,6 +37,12 @@ var InterceptHttp = (function (_super) {
     InterceptHttp.prototype.delete = function (url, options) {
         return this.intercept(_super.prototype.delete.call(this, url, options));
     };
+    InterceptHttp.prototype.patch = function (url, body, options) {
+        return this.intercept(_super.prototype.patch.call(this, url, body, options));
+    };
+    InterceptHttp.prototype.head = function (url, options) {
+        return this.intercept(_super.prototype.head.call(this, url, options));
+    };
     InterceptHttp.prototype.getRequestOptionArgs = function (options) {
         if (options == null) {
             options = new http_1.RequestOptions();

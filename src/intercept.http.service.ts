@@ -22,16 +22,24 @@ export class InterceptHttp extends Http {
         return this.intercept(super.get(url, options));
     }
 
-    post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
+    post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
         return this.intercept(super.post(url, body, this.getRequestOptionArgs(options)));
     }
 
-    put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
+    put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
         return this.intercept(super.put(url, body, this.getRequestOptionArgs(options)));
     }
 
     delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
         return this.intercept(super.delete(url, options));
+    }
+
+    patch(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
+        return this.intercept(super.patch(url, body, options));
+    }
+
+    head(url: string, options?: RequestOptionsArgs): Observable<Response> {
+        return this.intercept(super.head(url, options));
     }
 
     getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {

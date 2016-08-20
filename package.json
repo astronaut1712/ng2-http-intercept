@@ -1,6 +1,6 @@
 {
   "name": "ng2-http-intercept",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Http intercept for Angular 2",
   "main": "dist/index.js",
   "scripts": {

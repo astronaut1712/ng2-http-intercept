@@ -50,3 +50,11 @@ export class LoadingComponent implements OnInit() {
     }
 }
 ```
+
+
+## Contribution
+
+- Fork the project
+- Commit your changes
+- Create pull requests :)
+

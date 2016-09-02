@@ -1,5 +1,5 @@
 import { Injectable, Inject } from "@angular/core";
-import { HTTP_PROVIDERS, Http, Request, RequestOptionsArgs, Response, XHRBackend, RequestOptions, ConnectionBackend, Headers } from "@angular/http";
+import { Http, Request, RequestOptionsArgs, Response, XHRBackend, RequestOptions, ConnectionBackend, Headers } from "@angular/http";
 import { Observable } from "rxjs/Rx";
 import { PSService } from "./ps.service";
 

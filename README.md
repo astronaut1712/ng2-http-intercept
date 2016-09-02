@@ -13,22 +13,32 @@ npm install --save ng2-http-intercept
 *From bootstrap of application*
 
 ```typescript
-import { Http, HTTP_PROVIDERS, XHRBackend, RequestOptions } from "@angular/http";
+import { HttpModule, Http, XHRBackend, RequestOptions } from "@angular/http";
 import { PSService, InterceptHttp } from "ng2-http-intercept";
 
-bootstrap(App, [
-	...
-    HTTP_PROVIDERS,
-	PSService,
-	provide(Http, {
-		useFactory: (backend: XHRBackend, defaultOptions: RequestOptions, pubsub: PSService) =>
-			new InterceptHttp(backend, defaultOptions, pubsub),
-		deps: [ XHRBackend, RequestOptions, PubSubService ]
-	})
-]).then(
-	(success:any) => console.log("Bootstrap successful"),
-	(error:any) => console.error(error)
-);
+
+@NgModule({
+  imports: [
+    ...
+    HttpModule
+  ],
+  declarations: [
+    AppComponent
+  ],
+  providers: [
+    ...
+    PSService,
+    {
+      provide: Http,
+      useFactory: (backend: XHRBackend, defaultOptions: RequestOptions, pubsub: PSService) =>
+            new InterceptHttp(backend, defaultOptions, pubsub),
+        deps: [ XHRBackend, RequestOptions, PSService ]
+    },
+    ...
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
 
 ```
 
@@ -50,6 +60,10 @@ export class LoadingComponent implements OnInit() {
     }
 }
 ```
+
+# Updates
+
+- Angular 2 RC5
 
 
 ## Contribution
